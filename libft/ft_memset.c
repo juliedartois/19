@@ -1,34 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jd-artoi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/17 10:29:40 by jd-artoi          #+#    #+#             */
-/*   Updated: 2020/11/17 10:53:52 by jd-artoi         ###   ########.fr       */
+/*   Created: 2020/11/17 16:32:38 by jd-artoi          #+#    #+#             */
+/*   Updated: 2020/11/17 16:51:36 by jd-artoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
 #include <string.h>
+#include <stdio.h>
 
-int		ft_strchr(const char *s, int c)
+void	*ft_memset(void *b, int c, size_t len)
 {
-	char *str;
+	int		i;
 
-	str = (char*)s;
-	while (str && (*str != c))
-		str++;
-	if (*str == c)
-		return (str);
-	return (0);
-}
-
-int		main(void)
-{
-	char *str;
-
-	str = "this is the string where you search";
-	printf("ft : %d\nc  : %s\n", ft_strchr(str, 'e'), strchr(str, 'e'));
+	i = 0;
+	while (&b[i])
+		++i;
+	return (b);
 }
