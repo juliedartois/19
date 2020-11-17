@@ -3,16 +3,24 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
+<<<<<<< HEAD
 /*   By: jd-artoi <jd-artoi@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/16 17:42:12 by jd-artoi          #+#    #+#             */
 /*   Updated: 2020/11/16 22:23:04 by jd-artoi         ###   ########.fr       */
+=======
+/*   By: jd-artoi <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/11/17 10:19:15 by jd-artoi          #+#    #+#             */
+/*   Updated: 2020/11/17 16:29:09 by jd-artoi         ###   ########.fr       */
+>>>>>>> b0ba7c2fad7b342bbb19af4b29593bc5fc1dc412
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 
+<<<<<<< HEAD
 # include <stddef.h>
 # include <unistd.h>
 # include <stdlib.h>
@@ -97,5 +105,21 @@ void				ft_lstclear(t_list **lst, void (*del)(void *));
 void				ft_lstiter(t_list *lst, void (*f)(void *));
 t_list				*ft_lstmap(t_list *lst, void *(*f)(void *),
 							void (*del)(void *));
+=======
+# include <string.h>
+# include <unistd.h>
+# include <stdlib.h>
+# include <stdio.h>
+
+int		ft_strlen(char *str);
+int		ft_isalpha(int c);
+int		ft_isdigit(int c);
+// int		ft_isalnum(int c);
+// int		ft_isascii(int c);
+// int		ft_isprint(int c);
+int		ft_tolower(int c);
+int		ft_toupper(int c);
+// int		ft_strchr(const char *s, int c);
+>>>>>>> b0ba7c2fad7b342bbb19af4b29593bc5fc1dc412
 
 #endif
