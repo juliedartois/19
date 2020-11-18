@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isascii.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jd-artoi <jd-artoi@student.s19.be>         +#+  +:+       +#+        */
+/*   By: jd-artoi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/16 19:49:39 by jd-artoi          #+#    #+#             */
-/*   Updated: 2020/11/16 20:07:15 by jd-artoi         ###   ########.fr       */
+/*   Updated: 2020/11/18 11:35:04 by jd-artoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_isascii(char c)
+int		ft_isascii(int c)
 {
 	if (c >= 0 && c <= 127)
 		return (1);
