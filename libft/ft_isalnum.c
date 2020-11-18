@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isalnum.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jd-artoi <jd-artoi@student.s19.be>         +#+  +:+       +#+        */
+/*   By: jd-artoi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/16 19:38:46 by jd-artoi          #+#    #+#             */
-/*   Updated: 2020/11/16 19:54:41 by jd-artoi         ###   ########.fr       */
+/*   Updated: 2020/11/18 11:13:40 by jd-artoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_isalnum(char c)
+int		ft_isalnum(int c)
 {
 	if (c >= '0' && c <= '9')
 		return (1);

@@ -6,7 +6,7 @@
 /*   By: jd-artoi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/17 16:32:38 by jd-artoi          #+#    #+#             */
-/*   Updated: 2020/11/17 16:51:36 by jd-artoi         ###   ########.fr       */
+/*   Updated: 2020/11/18 11:13:01 by jd-artoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,7 @@
 
 void	*ft_memset(void *b, int c, size_t len)
 {
-	int		i;
+	while (len--)
 
-	i = 0;
-	while (&b[i])
-		++i;
 	return (b);
 }
