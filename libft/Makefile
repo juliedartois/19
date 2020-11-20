@@ -6,7 +6,7 @@
 #    By: jd-artoi <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/11/17 10:19:31 by jd-artoi          #+#    #+#              #
-#    Updated: 2020/11/19 21:39:30 by jd-artoi         ###   ########.fr        #
+#    Updated: 2020/11/20 12:38:18 by jd-artoi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,7 +28,10 @@ SRC		=	ft_memset.c		\
 			ft_toupper.c	\
 			ft_isascii.c	\
 			ft_isprint.c	\
-			ft_isalnum.c
+			ft_isalnum.c	\
+			ft_strchr.c		\
+			ft_strrchr.c	\
+			ft_strncmp.c
 
 OBJ		=	$(SRC:.c=.o)
 

@@ -4,83 +4,7 @@ ft_memcpy:     [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK]
 ft_memccpy:    [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] 
 ft_memmove:    [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] 
 ft_memchr:     [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] 
-ft_memcmp:     [OK] [OK] [FAILED] [FAILED] [FAILED] [OK] [FAILED] [CRASH] [OK] [OK] 
-[fail]: your memcmp does not work with basic input
-Test code:
-	char *s1 = "\xff\xaa\xde\x12";
-	char *s2 = "\xff\xaa\xde\x12MACOSAAAAA";
-	size_t size = 4;
-	int i1 = simple_memcmp(s1, s2, size);
-	int i2 = ft_memcmp(s1, s2, size);
-
-	if (i1 == i2)
-		exit(TEST_SUCCESS);
-	exit(TEST_FAILED);
-
-Diffs:
-      memcmp: |0|
-   ft_memcmp: |-77|
-
-[fail]: your memcmp does not work with basic input
-Test code:
-	char *s1 = "\xff\xaa\xde\xffMACOSX\xff";
-	char *s2 = "\xff\xaa\xde\x02";
-	size_t size = 8;
-	int i1 = simple_memcmp(s1, s2, size);
-	int i2 = ft_memcmp(s1, s2, size);
-
-	if (i1 == i2)
-		exit(TEST_SUCCESS);
-	exit(TEST_FAILED);
-
-Diffs:
-      memcmp: |253|
-   ft_memcmp: |-3|
-
-[fail]: your memcmp does not cast the memory in unsigned char
-Test code:
-	char *s1 = "\xff\xaa\xde\200";
-	char *s2 = "\xff\xaa\xde\0";
-	size_t size = 8;
-	int i1 = simple_memcmp(s1, s2, size);
-	int i2 = ft_memcmp(s1, s2, size);
-
-	if (i1 == i2)
-		exit(TEST_SUCCESS);
-	exit(TEST_FAILED);
-
-Diffs:
-      memcmp: |128|
-   ft_memcmp: |-128|
-
-[fail]: your memcmp does not work with basic input
-Test code:
-	char *s1 = "\xff\0\0\xaa\0\xde\xffMACOSX\xff";
-	char *s2 = "\xff\0\0\xaa\0\xde\x00MBS";
-	size_t size = 9;
-	int i1 = simple_memcmp(s1, s2, size);
-	int i2 = ft_memcmp(s1, s2, size);
-
-	if (i1 == i2)
-		exit(TEST_SUCCESS);
-	exit(TEST_FAILED);
-
-Diffs:
-      memcmp: |255|
-   ft_memcmp: |-1|
-
-[crash]: your memcmp crash because it read too many bytes !
-Test code:
-	size_t size = 10;
-	char *b1 = electric_alloc(size);
-	char *b2 = electric_alloc(size);
-
-	__builtin___strcpy_chk (b1, ".........", __builtin_object_size (b1, 2 > 1 ? 1 : 0));
-	__builtin___strcpy_chk (b2, ".........", __builtin_object_size (b2, 2 > 1 ? 1 : 0));
-	ft_memcmp(b1, b2, size);
-	exit(TEST_SUCCESS);
-
-
+ft_memcmp:     [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] 
 ft_strlen:     [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] 
 ft_isalpha:    [OK] 
 ft_isdigit:    [OK] 
@@ -89,9 +13,25 @@ ft_isascii:    [OK]
 ft_isprint:    [OK] 
 ft_toupper:    [OK] 
 ft_tolower:    [OK] 
-ft_strchr:     [MISSING]
-ft_strrchr:    [MISSING]
-ft_strncmp:    [MISSING]
+ft_strchr:     [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] 
+ft_strrchr:    [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] 
+ft_strncmp:    [OK] [OK] [OK] [OK] [OK] [OK] [OK] [FAILED] [OK] [OK] [OK] [OK] [OK] [OK] 
+[fail]: your strncmp doesn't stop at \0
+Test code:
+	char *s1 = "atoms\0\0\0\0";
+	char *s2 = "atoms\0abc";
+	size_t size = 8;
+	int i1 = ((strncmp(s1, s2, size) > 0) ? 1 : ((strncmp(s1, s2, size) < 0) ? -1 : 0));
+	int i2 = ((ft_strncmp(s1, s2, size) > 0) ? 1 : ((ft_strncmp(s1, s2, size) < 0) ? -1 : 0));
+
+	if (i1 == i2)
+		exit(TEST_SUCCESS);
+	exit(TEST_FAILED);
+
+Diffs:
+     strncmp: |0|
+  ft_strncmp: |-1|
+
 ft_strlcpy:    [MISSING]
 ft_strlcat:    [MISSING]
 ft_strnstr:    [MISSING]
