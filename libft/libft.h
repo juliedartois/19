@@ -6,7 +6,7 @@
 /*   By: jd-artoi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/17 10:19:15 by jd-artoi          #+#    #+#             */
-/*   Updated: 2020/11/20 15:55:25 by jd-artoi         ###   ########.fr       */
+/*   Updated: 2020/11/23 13:15:59 by jd-artoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define LIBFT_H
 
 #include <stdlib.h>
+#include <limits.h>
 
 void	*ft_memset(void *b, int c, size_t n);
 void	ft_bzero(void *s, size_t n);
@@ -35,5 +36,7 @@ char	*ft_strrchr(const char *s, int c);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
 size_t	ft_strlcpy(char *dst, const char *a, size_t dstsize);
 size_t	ft_strlcat(char *dst, const char *a, size_t dstsize);
+char	*ft_strnstr(const char *hay, const char *needle, size_t len);
+int		ft_atoi(const char *str);
 
 #endif

@@ -17,7 +17,7 @@ ft_strchr:     [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK]
 ft_strrchr:    [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] 
 ft_strncmp:    [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] 
 ft_strlcpy:    [OK] [OK] [OK] [OK] [OK] [OK] {protected}
-ft_strlcat:    [FAILED] [FAILED] [FAILED] [OK] [OK] [OK] [FAILED] [OK] [CRASH] [FAILED] [OK] [OK] 
+ft_strlcat:    [FAILED] [FAILED] [FAILED] [FAILED] [FAILED] [OK] [FAILED] [FAILED] [OK] [FAILED] [OK] [OK] 
 [fail]: your strlcat does not work with basic input
 Test code:
 	char *str = "the cake is a lie !\0I'm hidden lol\r\n";
@@ -33,7 +33,7 @@ Test code:
 
 Diffs:
      strlcat: |there is no stars in the sky|
-  ft_strlcat: |there is no stars in the skythe cake is a lie !|
+  ft_strlcat: |there is no stars i|
 
 [fail]: your strlcat does not work with basic input
 Test code:
@@ -58,7 +58,7 @@ Test code:
 
 Diffs:
      strlcat: |42|
-  ft_strlcat: |46|
+  ft_strlcat: |47|
 
 [fail]: your strlcat does not work with basic input
 Test code:
@@ -77,6 +77,40 @@ Diffs:
      strlcat: |there is no stars in the skythe cake is a lie |
   ft_strlcat: |there is no stars in the sky|
 
+[fail]: your strlcat does not work with over length size
+Test code:
+	char *str = "the cake is a lie !\0I'm hidden lol\r\n";
+	char buff1[0xF00] = "there is no stars in the sky";
+	char buff2[0xF00] = "there is no stars in the sky";
+	size_t max = 1000;
+
+	__builtin___strlcat_chk (buff1, str, max, __builtin_object_size (buff1, 2 > 1 ? 1 : 0));
+	ft_strlcat(buff2, str, max);
+	if (!strcmp(buff1, buff2))
+		exit(TEST_SUCCESS);
+	exit(TEST_FAILED);
+
+Diffs:
+     strlcat: |there is no stars in the skythe cake is a lie !|
+  ft_strlcat: |there is no stars in the sky|
+
+[fail]: your strlcat does not work with a size of 0
+Test code:
+	char *str = "the cake is a lie !\0I'm hidden lol\r\n";
+	char buff1[0xF00] = "there is no stars in the sky";
+	char buff2[0xF00] = "there is no stars in the sky";
+	size_t max = 0;
+
+	__builtin___strlcat_chk (buff1, str, max, __builtin_object_size (buff1, 2 > 1 ? 1 : 0));
+	ft_strlcat(buff2, str, max);
+	if (!strcmp(buff1, buff2))
+		exit(TEST_SUCCESS);
+	exit(TEST_FAILED);
+
+Diffs:
+     strlcat: |there is no stars in the sky|
+  ft_strlcat: |there is no stars i|
+
 [fail]: your strcat does not work with empty string as second parameter
 Test code:
 	char *str = "the cake is a lie !\0I'm hidden lol\r\n";
@@ -92,19 +126,24 @@ Test code:
 
 Diffs:
      strlcat: |the cake is a lie !|
-  ft_strlcat: |the cake i|
+  ft_strlcat: ||
 
-[crash]: your strlcat crash because it read too many bytes or attempt to write on buff !
+[fail]: your strlcat does not set a \0 to the end
 Test code:
-	const size_t size = 10;
-	char *str = electric_alloc(size);
-	char *buff = electric_alloc(size);
+	char *str = "n\0AA";
+	char buff1[0xF00] = "\0AAAAAAAAAAAAAAAA";
+	char buff2[0xF00] = "\0AAAAAAAAAAAAAAAA";
+	size_t max = 10;
 
-	__builtin___strcpy_chk (buff, "AB", __builtin_object_size (buff, 2 > 1 ? 1 : 0));
-	__builtin___strcpy_chk (str, "CDEFGHI", __builtin_object_size (str, 2 > 1 ? 1 : 0));
-	ft_strlcat(buff, str, 10);
-	exit(TEST_SUCCESS);
+	__builtin___strlcat_chk (buff1, str, max, __builtin_object_size (buff1, 2 > 1 ? 1 : 0));
+	ft_strlcat(buff2, str, max);
+	if (!strcmp(buff1, buff2))
+		exit(TEST_SUCCESS);
+	exit(TEST_FAILED);
 
+Diffs:
+     strlcat: |n|
+  ft_strlcat: ||
 
 [fail]: your strlcat return value is false
 Test code:
@@ -128,10 +167,10 @@ Test code:
 
 Diffs:
      strlcat: |23|
-  ft_strlcat: |29|
+  ft_strlcat: |6|
 
-ft_strnstr:    [MISSING]
-ft_atoi:       [MISSING]
+ft_strnstr:    [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] 
+ft_atoi:       [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] 
 ft_calloc:     [MISSING]
 ft_strdup:     [MISSING]
 ft_substr:     [MISSING]
