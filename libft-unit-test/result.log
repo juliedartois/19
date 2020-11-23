@@ -22,8 +22,73 @@ ft_strnstr:    [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] 
 ft_atoi:       [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] 
 ft_calloc:     [OK] [OK] [OK] [OK] [OK] 
 ft_strdup:     [OK] [OK] [OK] [OK] [OK] [OK] [OK] 
-ft_substr:     [MISSING]
-ft_strjoin:    [MISSING]
+ft_substr:     [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] {protected}[OK] 
+ft_strjoin:    [FAILED] [FAILED] [FAILED] [OK] [FAILED] {not protected}
+[fail]: your strjoin does not work with basic input
+Test code:
+	char *s1 = "my favorite animal is";
+	char *s2 = " ";
+	char *s3 = "the nyancat";
+	char *res = ft_strjoin(ft_strjoin(s1, s2), s3);
+
+	if (!strcmp(res, "my favorite animal is the nyancat"))
+		exit(TEST_SUCCESS);
+	exit(TEST_FAILED);
+
+Diffs:
+     strjoin: |my favorite animal is the nyancat|
+  ft_strjoin: ||
+
+[fail]: your strjoin does not allocate the memory
+Test code:
+	char *s1 = "my favorite animal is";
+	char *s2 = " ";
+	char *s3 = "the nyancat";
+	char *tmp = ft_strjoin(s1, s2);
+	char *res = ft_strjoin(tmp, s3);
+
+	free(tmp);
+	if (!strcmp(res, "my favorite animal is the nyancat"))
+	{
+		free(res);
+		exit(TEST_SUCCESS);
+	}
+	free(res);
+	exit(TEST_FAILED);
+
+Diffs:
+     strjoin: |my favorite animal is the nyancat|
+  ft_strjoin: ||
+
+[fail]: your strjoin does not work with overlap input
+Test code:
+	char *s1 = "my favorite animal is ";
+	char *s2 = s1 + 20;
+	char *res = ft_strjoin(s2, s1);
+
+	if (!strcmp(res, "s my favorite animal is "))
+		exit(TEST_SUCCESS);
+	exit(TEST_FAILED);
+
+Diffs:
+     strjoin: |s my favorite animal is |
+  ft_strjoin: ||
+
+[fail]: your strjoin does not set \0 to the end of the string
+Test code:
+	char *s1 = "where is my ";
+	char *s2 = "malloc ???";
+	char *s3 = "where is my malloc ???";
+
+	char *res = ft_strjoin(s1, s2);
+	if (!strcmp(res, s3))
+		exit(TEST_SUCCESS);
+	exit(TEST_FAILED);
+
+Diffs:
+     strjoin: |where is my malloc ???|
+  ft_strjoin: |AAAAAAAAAAAAAAAAAAAAAAA|
+
 ft_strtrim:    [MISSING]
 ft_split:      [MISSING]
 ft_itoa:       [MISSING]
