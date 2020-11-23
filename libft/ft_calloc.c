@@ -1,28 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jd-artoi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/20 15:53:49 by jd-artoi          #+#    #+#             */
-/*   Updated: 2020/11/23 15:45:38 by jd-artoi         ###   ########.fr       */
+/*   Created: 2020/11/23 14:58:23 by jd-artoi          #+#    #+#             */
+/*   Updated: 2020/11/23 15:05:12 by jd-artoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
+void	*ft_calloc(size_t count, size_t size)
 {
-	size_t	i;
-	size_t	dstlen;
+	char	*str;
+	int		i;
 
 	i = -1;
-	dstlen = ft_strlen(dst);
-	if (dstsize <= dstlen)
-		return (dstsize + ft_strlen(src));
-	while (src[++i] && i < dstsize - dstlen - 1)
-		dst[dstlen + i] = src[i];
-	dst[dstlen + i] = '\0';
-	return (dstlen + ft_strlen(src));
+	str = malloc(count * size);
+	if (!str)
+		return (0);
+	while (str[++i])
+		str[i] = '\0';
+	return (&str[0]);
 }

@@ -1,28 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jd-artoi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/20 15:53:49 by jd-artoi          #+#    #+#             */
-/*   Updated: 2020/11/23 15:45:38 by jd-artoi         ###   ########.fr       */
+/*   Created: 2020/11/23 15:05:28 by jd-artoi          #+#    #+#             */
+/*   Updated: 2020/11/23 15:46:12 by jd-artoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
+void	*ft_strdup(const char *s1)
 {
-	size_t	i;
-	size_t	dstlen;
+	int		i;
+	char	*cpy;
 
 	i = -1;
-	dstlen = ft_strlen(dst);
-	if (dstsize <= dstlen)
-		return (dstsize + ft_strlen(src));
-	while (src[++i] && i < dstsize - dstlen - 1)
-		dst[dstlen + i] = src[i];
-	dst[dstlen + i] = '\0';
-	return (dstlen + ft_strlen(src));
+	cpy = malloc(sizeof(const char) * (ft_strlen(s1) + 1));
+	if (!cpy)
+	{
+		errno = ENOMEM;
+		return (0);
+	}
+	while (s1[++i])
+		cpy[i] = s1[i];
+	cpy[i] = '\0';
+	return (cpy);
 }
