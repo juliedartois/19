@@ -37,7 +37,7 @@ Test code:
 
 Diffs:
      strjoin: |my favorite animal is the nyancat|
-  ft_strjoin: ||
+  ft_strjoin: |my favorite animal is|
 
 [fail]: your strjoin does not allocate the memory
 Test code:
@@ -58,7 +58,7 @@ Test code:
 
 Diffs:
      strjoin: |my favorite animal is the nyancat|
-  ft_strjoin: ||
+  ft_strjoin: |my favorite animal is|
 
 [fail]: your strjoin does not work with overlap input
 Test code:
@@ -72,7 +72,7 @@ Test code:
 
 Diffs:
      strjoin: |s my favorite animal is |
-  ft_strjoin: ||
+  ft_strjoin: |s my favorite animal |
 
 [fail]: your strjoin does not set \0 to the end of the string
 Test code:
@@ -87,7 +87,7 @@ Test code:
 
 Diffs:
      strjoin: |where is my malloc ???|
-  ft_strjoin: |AAAAAAAAAAAAAAAAAAAAAAA|
+  ft_strjoin: |where is my AAAAAAAAAAA|
 
 ft_strtrim:    [MISSING]
 ft_split:      [MISSING]
