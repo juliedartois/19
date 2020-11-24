@@ -6,26 +6,32 @@
 /*   By: jd-artoi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/24 16:49:15 by jd-artoi          #+#    #+#             */
-/*   Updated: 2020/11/24 17:30:55 by jd-artoi         ###   ########.fr       */
+/*   Updated: 2020/11/24 18:17:01 by jd-artoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+int		ft_check(char a, const char *set)
+{
+	while (*set)
+		if (a == *set++)
+			return (1);
+	return (0);
+}
+
 char	*ft_strtrim(char const *s1, char const *set)
 {
-	char	*str;
 	int		i;
 	int		j;
 
+	if (!s1)
+		return (0);
 	i = 0;
-	j = -1;
-	while (s1[i])
-	{
-		while (set[++j])
-			if (s1[i] == set[j])
-				++i;
-	}
+	j = ft_strlen(s1) - 1;
+	while (s1[i] && ft_check(s1[i], set))
+		++i;
+	while (s1[j] && ft_check(s1[j], set))
+		--j;
+	return (ft_substr(s1, i, (j - i + 1)));
 }
-
-
