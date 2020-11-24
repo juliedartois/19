@@ -23,7 +23,7 @@ ft_atoi:       [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] 
 ft_calloc:     [OK] [OK] [OK] [OK] [OK] 
 ft_strdup:     [OK] [OK] [OK] [OK] [OK] [OK] [OK] 
 ft_substr:     [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] {protected}[OK] 
-ft_strjoin:    [FAILED] [FAILED] [FAILED] [OK] [FAILED] {not protected}
+ft_strjoin:    [FAILED] [CRASH] [FAILED] [FAILED] [FAILED] {protected}
 [fail]: your strjoin does not work with basic input
 Test code:
 	char *s1 = "my favorite animal is";
@@ -39,7 +39,7 @@ Diffs:
      strjoin: |my favorite animal is the nyancat|
   ft_strjoin: |my favorite animal is|
 
-[fail]: your strjoin does not allocate the memory
+[crash]: your strjoin does not allocate the memory
 Test code:
 	char *s1 = "my favorite animal is";
 	char *s2 = " ";
@@ -56,9 +56,6 @@ Test code:
 	free(res);
 	exit(TEST_FAILED);
 
-Diffs:
-     strjoin: |my favorite animal is the nyancat|
-  ft_strjoin: |my favorite animal is|
 
 [fail]: your strjoin does not work with overlap input
 Test code:
@@ -72,7 +69,21 @@ Test code:
 
 Diffs:
      strjoin: |s my favorite animal is |
-  ft_strjoin: |s my favorite animal |
+  ft_strjoin: |s |
+
+[fail]: you did not protect your malloc return
+Test code:
+	char *s1 = "where is my ";
+	char *s2 = "malloc ???";
+
+	char *res = ft_strjoin(s2, s1);
+	if (res == ((void *)0))
+		exit(TEST_SUCCESS);
+	exit(TEST_FAILED);
+
+Diffs:
+     strjoin: |0x0|
+  ft_strjoin: |0x10fb027fb|
 
 [fail]: your strjoin does not set \0 to the end of the string
 Test code:
@@ -87,7 +98,7 @@ Test code:
 
 Diffs:
      strjoin: |where is my malloc ???|
-  ft_strjoin: |where is my AAAAAAAAAAA|
+  ft_strjoin: |where is my |
 
 ft_strtrim:    [MISSING]
 ft_split:      [MISSING]
