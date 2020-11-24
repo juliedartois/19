@@ -6,7 +6,7 @@
 /*   By: jd-artoi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/20 14:14:09 by jd-artoi          #+#    #+#             */
-/*   Updated: 2020/11/23 15:44:48 by jd-artoi         ###   ########.fr       */
+/*   Updated: 2020/11/24 16:48:46 by jd-artoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 
 	i = -1;
 	size = 0;
-	if (src == NULL)
+	if (!src)
 		return (0);
 	size = ft_strlen(src);
 	if (dstsize == 0)

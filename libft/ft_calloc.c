@@ -6,11 +6,12 @@
 /*   By: jd-artoi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/23 14:58:23 by jd-artoi          #+#    #+#             */
-/*   Updated: 2020/11/23 16:25:46 by jd-artoi         ###   ########.fr       */
+/*   Updated: 2020/11/24 16:42:10 by jd-artoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <unistd.h>
 
 void	*ft_calloc(size_t count, size_t size)
 {
@@ -18,10 +19,8 @@ void	*ft_calloc(size_t count, size_t size)
 	int		i;
 
 	i = -1;
-	str = malloc(count * size);
-	if (!str)
+	if (!(str = malloc(count * size)))
 		return (0);
-	while (str[++i])
-		str[i] = '\0';
-	return (&str[0]);
+	ft_bzero(str, count * size);
+	return (str);
 }
