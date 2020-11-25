@@ -6,7 +6,7 @@
 /*   By: jd-artoi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/24 16:49:15 by jd-artoi          #+#    #+#             */
-/*   Updated: 2020/11/24 18:17:01 by jd-artoi         ###   ########.fr       */
+/*   Updated: 2020/11/25 10:30:35 by jd-artoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 	j = ft_strlen(s1) - 1;
 	while (s1[i] && ft_check(s1[i], set))
 		++i;
-	while (s1[j] && ft_check(s1[j], set))
+	while (j > i && ft_check(s1[j], set))
 		--j;
 	return (ft_substr(s1, i, (j - i + 1)));
 }

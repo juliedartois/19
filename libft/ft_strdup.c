@@ -6,7 +6,7 @@
 /*   By: jd-artoi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/23 15:05:28 by jd-artoi          #+#    #+#             */
-/*   Updated: 2020/11/23 15:46:12 by jd-artoi         ###   ########.fr       */
+/*   Updated: 2020/11/25 14:28:22 by jd-artoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,7 @@ void	*ft_strdup(const char *s1)
 	i = -1;
 	cpy = malloc(sizeof(const char) * (ft_strlen(s1) + 1));
 	if (!cpy)
-	{
-		errno = ENOMEM;
 		return (0);
-	}
 	while (s1[++i])
 		cpy[i] = s1[i];
 	cpy[i] = '\0';
