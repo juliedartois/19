@@ -17,32 +17,44 @@ ft_strchr:     [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK]
 ft_strrchr:    [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] 
 ft_strncmp:    [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] 
 ft_strlcpy:    [OK] [OK] [OK] [OK] [OK] [OK] {protected}
+<<<<<<< HEAD
 ft_strlcat:    [OK] [FAILED] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] 
 [fail]: your strlcat does not work with basic input
+=======
+ft_strlcat:    [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] 
+ft_strnstr:    [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] 
+ft_atoi:       [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] 
+ft_calloc:     [OK] [OK] [OK] [OK] [OK] 
+ft_strdup:     [OK] [OK] [OK] [OK] [OK] [OK] [OK] 
+ft_substr:     [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] {protected}[OK] 
+ft_strjoin:    [OK] [OK] [OK] [OK] [OK] {protected}
+ft_strtrim:    [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] {protected}
+ft_split:      [FAILED] [OK] [FAILED] [FAILED] [OK] [OK] [OK] [OK] [OK] {protected}
+[fail]: your split does not work with basic input
 Test code:
-	char *str = "the cake is a lie !\0I'm hidden lol\r\n";
-	char buff1[0xF00] = "there is no stars in the sky";
-	char buff2[0xF00] = "there is no stars in the sky";
-	size_t max = strlen("the cake is a lie !\0I'm hidden lol\r\n") + 4;
-	size_t r1 = __builtin___strlcat_chk (buff1, str, max, __builtin_object_size (buff1, 2 > 1 ? 1 : 0));
-	size_t r2 = ft_strlcat(buff2, str, max);
+	char *string = "      split       this for   me  !       ";
+	char **expected = ((char*[6]){"split", "this", "for", "me", "!", ((void *)0)});
+	char **result = ft_split(string, ' ');
 
-	if (r1 != r2)
-		exit(TEST_FAILED);
-	char s1[4] = "";
-	char s2[4] = "";
-	r1 = __builtin___strlcat_chk (s1, "thx to ntoniolo for this test !", 4, __builtin_object_size (s1, 2 > 1 ? 1 : 0))
-		;
-	r2 = ft_strlcat(s2, "thx to ntoniolo for this test !", 4)
-		;
-	if (r1 != r2)
-		exit(TEST_FAILED);
-	exit(TEST_SUCCESS);
+	split_cmp_array(expected, result);
 
 Diffs:
-     strlcat: |42|
-  ft_strlcat: |46|
+       split: |split|
+    ft_split: |(null)|
 
+[fail]: your split does not work with one word
+>>>>>>> a10c659fa2963bab68090755fa63168a4391f941
+Test code:
+	char *s = "                  olol";
+	char **result = ft_split(s, ' ');
+
+	split_cmp_array(expected, result);
+
+Diffs:
+       split: |olol|
+    ft_split: |(null)|
+
+<<<<<<< HEAD
 ft_strnstr:    [MISSING]
 ft_atoi:       [MISSING]
 ft_calloc:     [MISSING]
@@ -51,6 +63,19 @@ ft_substr:     [MISSING]
 ft_strjoin:    [MISSING]
 ft_strtrim:    [MISSING]
 ft_split:      [MISSING]
+=======
+[fail]: your split does not work with one word
+Test code:
+	char *s = "olol                     ";
+	char **result = ft_split(s, ' ');
+
+	split_cmp_array(expected, result);
+
+Diffs:
+       split: |olol|
+    ft_split: |(null)|
+
+>>>>>>> a10c659fa2963bab68090755fa63168a4391f941
 ft_itoa:       [MISSING]
 ft_strmapi:    [MISSING]
 ft_putchar_fd: [MISSING]
