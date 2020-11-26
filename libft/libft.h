@@ -6,7 +6,7 @@
 /*   By: jd-artoi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/17 10:19:15 by jd-artoi          #+#    #+#             */
-/*   Updated: 2020/11/25 14:43:59 by jd-artoi         ###   ########.fr       */
+/*   Updated: 2020/11/26 12:22:19 by jd-artoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,9 @@
 #include <limits.h>
 #include <errno.h>
 
+/*
+** PART ONE
+*/
 void	*ft_memset(void *b, int c, size_t n);
 void	ft_bzero(void *s, size_t n);
 void	*ft_memcpy(void *b, const void *a, size_t n);
@@ -42,9 +45,17 @@ int		ft_atoi(const char *str);
 void	*ft_calloc(size_t count, size_t size);
 void	*ft_strdup(const char *s1);
 
+/*
+** PART TWO
+*/
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 char	*ft_strjoin(char const *s1, char const *s2);
 char	*ft_strtrim(char const *s1, char const *set);
-char	**ft_split(char const *s, char c);
+// char	**ft_split(char const *s, char c);
+char	*ft_itoa(int n);
+
+/*
+** BONUS
+*/
 
 #endif

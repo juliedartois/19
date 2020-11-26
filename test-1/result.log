@@ -25,42 +25,95 @@ ft_strdup:     [OK] [OK] [OK] [OK] [OK] [OK] [OK]
 ft_substr:     [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] {protected}[OK] 
 ft_strjoin:    [OK] [OK] [OK] [OK] [OK] {protected}
 ft_strtrim:    [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] {protected}
-ft_split:      [FAILED] [OK] [FAILED] [FAILED] [OK] [OK] [OK] [OK] [OK] {protected}
-[fail]: your split does not work with basic input
+ft_split:      [MISSING]
+ft_itoa:       [FAILED] [FAILED] [FAILED] [FAILED] [FAILED] [OK] [OK] [OK] [OK] 
+[fail]: your itoa does not work with basic input
 Test code:
-	char *string = "      split       this for   me  !       ";
-	char **expected = ((char*[6]){"split", "this", "for", "me", "!", ((void *)0)});
-	char **result = ft_split(string, ' ');
+	char *i1 = ft_itoa(-623);
+	char *i2 = ft_itoa(156);
+	char *i3 = ft_itoa(-0);
 
-	split_cmp_array(expected, result);
+	if (strcmp(i1, "-623"))
+	{
+		exit(TEST_FAILED);
+	}
+	if (strcmp(i2, "156"))
+	{
+		exit(TEST_FAILED);
+	}
+	if (strcmp("0", i3))
+	{
+		exit(TEST_FAILED);
+	}
+	exit(TEST_SUCCESS);
 
 Diffs:
-       split: |split|
-    ft_split: |(null)|
+        itoa: |-623|
+     ft_itoa: ||
 
-[fail]: your split does not work with one word
+[fail]: your itoa does not work with random number
 Test code:
-	char *s = "                  olol";
-	char **result = ft_split(s, ' ');
+	srand(clock());
+	int n;
+	char *d;
 
-	split_cmp_array(expected, result);
+	for (int i = 0; i < 2000; i++)
+	{
+		n = rand();
+		d = ft_itoa(n);
+		if (atoi(d) != n)
+		{
+			exit(TEST_FAILED);
+		}
+	}
+	exit(TEST_SUCCESS);
 
 Diffs:
-       split: |olol|
-    ft_split: |(null)|
+        itoa: |4134522|
+     ft_itoa: |0|
 
-[fail]: your split does not work with one word
+[fail]: your itoa does not work with max int
 Test code:
-	char *s = "olol                     ";
-	char **result = ft_split(s, ' ');
+	char *i1 = ft_itoa(2147483647);
 
-	split_cmp_array(expected, result);
+	if (atoi(i1) != 2147483647)
+	{
+		exit(TEST_FAILED);
+	}
+	exit(TEST_SUCCESS);
 
 Diffs:
-       split: |olol|
-    ft_split: |(null)|
+        itoa: |2147483647|
+     ft_itoa: ||
 
-ft_itoa:       [MISSING]
+[fail]: your itoa does not work with min int
+Test code:
+	char *i1 = ft_itoa((-2147483647 -1));
+
+	if (atoi(i1) != (-2147483647 -1))
+	{
+		exit(TEST_FAILED);
+	}
+	exit(TEST_SUCCESS);
+
+Diffs:
+        itoa: |-2147483648|
+     ft_itoa: |ø|
+
+[fail]: your itoa don't set \0 at the end of the string
+Test code:
+
+	char *i1 = ft_itoa(-1234);
+	if (strcmp(i1, "-1234"))
+	{
+		exit(TEST_FAILED);
+	}
+	exit(TEST_SUCCESS);
+
+Diffs:
+        itoa: |-1234|
+     ft_itoa: ||
+
 ft_strmapi:    [MISSING]
 ft_putchar_fd: [MISSING]
 ft_putstr_fd:  [MISSING]

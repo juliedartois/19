@@ -6,7 +6,7 @@
 #    By: jd-artoi <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/11/17 10:19:31 by jd-artoi          #+#    #+#              #
-#    Updated: 2020/11/25 14:43:47 by jd-artoi         ###   ########.fr        #
+#    Updated: 2020/11/26 12:22:41 by jd-artoi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -41,7 +41,7 @@ SRC		=	ft_memset.c		\
 			ft_substr.c		\
 			ft_strjoin.c	\
 			ft_strtrim.c	\
-			ft_split.c		\
+			ft_itoa.c		\
 
 OBJ		=	$(SRC:.c=.o)
 
