@@ -17,10 +17,6 @@ ft_strchr:     [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK]
 ft_strrchr:    [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] 
 ft_strncmp:    [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] 
 ft_strlcpy:    [OK] [OK] [OK] [OK] [OK] [OK] {protected}
-<<<<<<< HEAD
-ft_strlcat:    [OK] [FAILED] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] 
-[fail]: your strlcat does not work with basic input
-=======
 ft_strlcat:    [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] 
 ft_strnstr:    [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] 
 ft_atoi:       [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] 
@@ -30,118 +26,7 @@ ft_substr:     [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] {protected}[OK]
 ft_strjoin:    [OK] [OK] [OK] [OK] [OK] {protected}
 ft_strtrim:    [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] {protected}
 ft_split:      [MISSING]
-ft_itoa:       [FAILED] [FAILED] [FAILED] [FAILED] [FAILED] [OK] [OK] [OK] [OK] 
-[fail]: your itoa does not work with basic input
-Test code:
-	char *i1 = ft_itoa(-623);
-	char *i2 = ft_itoa(156);
-	char *i3 = ft_itoa(-0);
-
-	if (strcmp(i1, "-623"))
-	{
-		exit(TEST_FAILED);
-	}
-	if (strcmp(i2, "156"))
-	{
-		exit(TEST_FAILED);
-	}
-	if (strcmp("0", i3))
-	{
-		exit(TEST_FAILED);
-	}
-	exit(TEST_SUCCESS);
-
-Diffs:
-        itoa: |-623|
-     ft_itoa: ||
-
-<<<<<<< HEAD:test-1/result.log
-[fail]: your itoa does not work with random number
-=======
-[fail]: your split does not work with one word
->>>>>>> a10c659fa2963bab68090755fa63168a4391f941
->>>>>>> 041e77ad8261810af4c3ea6ac7e4d62cf9b81957:libft-unit-test/result.log
-Test code:
-	srand(clock());
-	int n;
-	char *d;
-
-	for (int i = 0; i < 2000; i++)
-	{
-		n = rand();
-		d = ft_itoa(n);
-		if (atoi(d) != n)
-		{
-			exit(TEST_FAILED);
-		}
-	}
-	exit(TEST_SUCCESS);
-
-Diffs:
-        itoa: |4134522|
-     ft_itoa: |0|
-
-<<<<<<< HEAD:test-1/result.log
-[fail]: your itoa does not work with max int
-=======
-<<<<<<< HEAD
-ft_strnstr:    [MISSING]
-ft_atoi:       [MISSING]
-ft_calloc:     [MISSING]
-ft_strdup:     [MISSING]
-ft_substr:     [MISSING]
-ft_strjoin:    [MISSING]
-ft_strtrim:    [MISSING]
-ft_split:      [MISSING]
-=======
-[fail]: your split does not work with one word
->>>>>>> 041e77ad8261810af4c3ea6ac7e4d62cf9b81957:libft-unit-test/result.log
-Test code:
-	char *i1 = ft_itoa(2147483647);
-
-	if (atoi(i1) != 2147483647)
-	{
-		exit(TEST_FAILED);
-	}
-	exit(TEST_SUCCESS);
-
-Diffs:
-        itoa: |2147483647|
-     ft_itoa: ||
-
-[fail]: your itoa does not work with min int
-Test code:
-	char *i1 = ft_itoa((-2147483647 -1));
-
-	if (atoi(i1) != (-2147483647 -1))
-	{
-		exit(TEST_FAILED);
-	}
-	exit(TEST_SUCCESS);
-
-Diffs:
-        itoa: |-2147483648|
-     ft_itoa: |ø|
-
-[fail]: your itoa don't set \0 at the end of the string
-Test code:
-
-	char *i1 = ft_itoa(-1234);
-	if (strcmp(i1, "-1234"))
-	{
-		exit(TEST_FAILED);
-	}
-	exit(TEST_SUCCESS);
-
-Diffs:
-        itoa: |-1234|
-     ft_itoa: ||
-
-<<<<<<< HEAD:test-1/result.log
-=======
->>>>>>> a10c659fa2963bab68090755fa63168a4391f941
-ft_itoa:       [MISSING]
->>>>>>> 041e77ad8261810af4c3ea6ac7e4d62cf9b81957:libft-unit-test/result.log
+ft_itoa:       [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] 
 ft_strmapi:    [MISSING]
 ft_putchar_fd: [MISSING]
 ft_putstr_fd:  [MISSING]

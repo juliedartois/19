@@ -6,14 +6,14 @@
 /*   By: jd-artoi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/26 11:34:20 by jd-artoi          #+#    #+#             */
-/*   Updated: 2020/11/26 13:29:48 by jd-artoi         ###   ########.fr       */
+/*   Updated: 2020/11/26 15:06:40 by jd-artoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdio.h>
 
-int		ft_get_int_size(int n)
+int		ft_get_int_size(unsigned int n)
 {
 	int		i;
 
@@ -23,31 +23,34 @@ int		ft_get_int_size(int n)
 		n /= 10;
 		++i;
 	}
-	return (i);
+	return (i + 1);
 }
 
-char	*ft_itoa(int n)
+char	*ft_itoa(int num)
 {
-	char	*res;
-	int		size;
-	int		sign;
+	char			*res;
+	unsigned int	n;
+	int				sign;
+	int				size;
 
-	res = "";
-	size = 0;
 	sign = 0;
-	if (n < 0)
-		n *= -(++sign);
-	size = ft_get_int_size(n);
-	if (!(res = malloc(sizeof(char) * (size + 1 + sign))))
-		return (0);
-	res[size--] = '\0';
-	while (size >= 0)
+	if (num < 0)
 	{
-		if (sign == 1 && size == 0)
-			
-		res[size--] = n % 10;
+		n = -num;
+		++sign;
+	}
+	else
+		n = num;
+	size = ft_get_int_size(n);
+	if (!(res = malloc(sizeof(char) * (size + sign))))
+		return (0);
+	res[--size + sign] = '\0';
+	while (--size >= 0)
+	{
+		res[size + sign] = (n % 10) + '0';
 		n /= 10;
 	}
-
+	if (sign)
+		res[0] = '-';
 	return (res);
 }
