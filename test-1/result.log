@@ -17,6 +17,10 @@ ft_strchr:     [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK]
 ft_strrchr:    [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] 
 ft_strncmp:    [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] 
 ft_strlcpy:    [OK] [OK] [OK] [OK] [OK] [OK] {protected}
+<<<<<<< HEAD
+ft_strlcat:    [OK] [FAILED] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] 
+[fail]: your strlcat does not work with basic input
+=======
 ft_strlcat:    [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] 
 ft_strnstr:    [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] 
 ft_atoi:       [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] 
@@ -51,7 +55,12 @@ Diffs:
         itoa: |-623|
      ft_itoa: ||
 
+<<<<<<< HEAD:test-1/result.log
 [fail]: your itoa does not work with random number
+=======
+[fail]: your split does not work with one word
+>>>>>>> a10c659fa2963bab68090755fa63168a4391f941
+>>>>>>> 041e77ad8261810af4c3ea6ac7e4d62cf9b81957:libft-unit-test/result.log
 Test code:
 	srand(clock());
 	int n;
@@ -72,7 +81,21 @@ Diffs:
         itoa: |4134522|
      ft_itoa: |0|
 
+<<<<<<< HEAD:test-1/result.log
 [fail]: your itoa does not work with max int
+=======
+<<<<<<< HEAD
+ft_strnstr:    [MISSING]
+ft_atoi:       [MISSING]
+ft_calloc:     [MISSING]
+ft_strdup:     [MISSING]
+ft_substr:     [MISSING]
+ft_strjoin:    [MISSING]
+ft_strtrim:    [MISSING]
+ft_split:      [MISSING]
+=======
+[fail]: your split does not work with one word
+>>>>>>> 041e77ad8261810af4c3ea6ac7e4d62cf9b81957:libft-unit-test/result.log
 Test code:
 	char *i1 = ft_itoa(2147483647);
 
@@ -114,6 +137,11 @@ Diffs:
         itoa: |-1234|
      ft_itoa: ||
 
+<<<<<<< HEAD:test-1/result.log
+=======
+>>>>>>> a10c659fa2963bab68090755fa63168a4391f941
+ft_itoa:       [MISSING]
+>>>>>>> 041e77ad8261810af4c3ea6ac7e4d62cf9b81957:libft-unit-test/result.log
 ft_strmapi:    [MISSING]
 ft_putchar_fd: [MISSING]
 ft_putstr_fd:  [MISSING]
