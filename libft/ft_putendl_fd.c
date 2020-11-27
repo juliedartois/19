@@ -1,19 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jd-artoi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/27 13:08:20 by jd-artoi          #+#    #+#             */
-/*   Updated: 2020/11/27 13:11:38 by jd-artoi         ###   ########.fr       */
+/*   Created: 2020/11/27 13:12:01 by jd-artoi          #+#    #+#             */
+/*   Updated: 2020/11/27 13:13:30 by jd-artoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <unistd.h>
 
-void	ft_putstr_fd(char *s, int fd)
+void	ft_putendl_fd(char *s, int fd)
 {
 	int		i;
 
@@ -22,4 +22,5 @@ void	ft_putstr_fd(char *s, int fd)
 		return ;
 	while (s[++i])
 		write(fd, &s[i], 1);
+	write(fd, "\n", 1);
 }

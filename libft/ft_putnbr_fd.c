@@ -1,25 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jd-artoi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/27 13:08:20 by jd-artoi          #+#    #+#             */
-/*   Updated: 2020/11/27 13:11:38 by jd-artoi         ###   ########.fr       */
+/*   Created: 2020/11/27 13:14:14 by jd-artoi          #+#    #+#             */
+/*   Updated: 2020/11/27 13:25:25 by jd-artoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <unistd.h>
 
-void	ft_putstr_fd(char *s, int fd)
+void	ft_putnbr_fd(int nb, int fd)
 {
-	int		i;
+	unsigned int	n;
+	char			ltr;
 
-	i = -1;
-	if (!s)
-		return ;
-	while (s[++i])
-		write(fd, &s[i], 1);
+	if (nb < 0)
+	{
+		write(fd, "-", 1);
+		n = -nb;
+	}
+	else
+		n = nb;
+	if (n > 9)
+	{
+		ft_putnbr_fd(n / 10, fd);
+		n %= 10;
+	}
+	ltr = n + '0';
+	write(fd, &ltr, 1);
 }
