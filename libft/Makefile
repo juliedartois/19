@@ -6,7 +6,7 @@
 #    By: jd-artoi <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/11/17 10:19:31 by jd-artoi          #+#    #+#              #
-#    Updated: 2020/11/26 16:30:54 by jd-artoi         ###   ########.fr        #
+#    Updated: 2020/11/27 13:09:08 by jd-artoi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -43,6 +43,9 @@ SRC		=	ft_memset.c		\
 			ft_strtrim.c	\
 			ft_split.c		\
 			ft_itoa.c		\
+			ft_strmapi.c	\
+			ft_putchar_fd.c	\
+			ft_putstr_fd.c	\
 
 OBJ		=	$(SRC:.c=.o)
 

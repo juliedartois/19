@@ -25,88 +25,11 @@ ft_strdup:     [OK] [OK] [OK] [OK] [OK] [OK] [OK]
 ft_substr:     [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] {protected}[OK] 
 ft_strjoin:    [OK] [OK] [OK] [OK] [OK] {protected}
 ft_strtrim:    [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] {protected}
-ft_split:      [FAILED] [OK] [FAILED] [FAILED] [OK] [OK] [FAILED] [OK] [FAILED] {protected}
-[fail]: your split does not work with basic input
-Test code:
-	char *string = "      split       this for   me  !       ";
-	char **expected = ((char*[6]){"split", "this", "for", "me", "!", ((void *)0)});
-	char **result = ft_split(string, ' ');
-
-	split_cmp_array(expected, result);
-
-Diffs:
-       split: |split|
-    ft_split: ||
-
-[fail]: your split does not work with one word
-Test code:
-	char *s = "                  olol";
-	char **result = ft_split(s, ' ');
-
-	split_cmp_array(expected, result);
-
-Diffs:
-       split: |olol|
-    ft_split: ||
-
-[fail]: your split does not work with one word
-Test code:
-	char *s = "olol                     ";
-	char **result = ft_split(s, ' ');
-
-	split_cmp_array(expected, result);
-
-Diffs:
-       split: |olol|
-    ft_split: |olo|
-
-[fail]: your split does not work with basic input
-Test code:
-	char *s = "split  ||this|for|me|||||!|";
-	int i = 0;
-	char **result = ft_split(s, '|');
-
-	while (result[i])
-	{
-		if (strcmp(result[i], *expected))
-		{
-			exit(TEST_FAILED);
-		}
-		free(result[i]);
-		i++;
-		expected++;
-	}
-	free(result);
-	exit(TEST_SUCCESS);
-
-Diffs:
-       split: |split  |
-    ft_split: |split |
-
-[fail]: your split does not work with basic input
-Test code:
-	char *s = "      split       this for   me  !       ";
-
-	char **result = ft_split(s, ' ');
-	while (*result)
-	{
-		if (strcmp(*result, *expected))
-		{
-			exit(TEST_FAILED);
-		}
-		result++;
-		expected++;
-	}
-	exit(TEST_SUCCESS);
-
-Diffs:
-       split: |split|
-    ft_split: ||
-
+ft_split:      [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] {protected}
 ft_itoa:       [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] [OK] 
-ft_strmapi:    [MISSING]
-ft_putchar_fd: [MISSING]
-ft_putstr_fd:  [MISSING]
+ft_strmapi:    [OK] [OK] [OK] [OK] [OK] {protected}
+ft_putchar_fd: [OK] [OK] 
+ft_putstr_fd:  [OK] [OK] {not protected}
 ft_putendl_fd: [MISSING]
 ft_putnbr_fd:  [MISSING]
 ft_lstnew:     [MISSING]

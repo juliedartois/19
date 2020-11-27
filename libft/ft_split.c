@@ -6,12 +6,11 @@
 /*   By: jd-artoi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/25 10:33:53 by jd-artoi          #+#    #+#             */
-/*   Updated: 2020/11/27 11:57:01 by jd-artoi         ###   ########.fr       */
+/*   Updated: 2020/11/27 12:48:56 by jd-artoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
 static int		ft_free_all(char **new, int i)
 {
@@ -30,25 +29,22 @@ static int		ft_get_words(char *s, char **new, int wd_count, char c)
 	int		wd;
 
 	start = 0;
-	len = 0;
+	len = 1;
 	i = -1;
-	wd = 0;
-	while (s[++i] && wd < wd_count - 1)
+	wd = -1;
+	while (s[++i] && ++wd < wd_count - 1)
 	{
-		if (s[i] != c && (s[i - 1] == c || i == 0))
-			start = i;
+		while (s[i] == c)
+			++i;
+		start = i;
 		while (s[++i] != c)
 			++len;
 		new[wd] = ft_substr(s, start, len);
 		if (new[wd] == 0)
-		{
-			ft_free_all(new, wd);
-			return (0);
-		}
-		len = 0;
-		++wd;
+			return (ft_free_all(new, wd));
+		len = 1;
 	}
-	new[wd_count - 1] = "\0";
+	new[wd_count - 1] = 0;
 	return (1);
 }
 
@@ -80,14 +76,4 @@ char			**ft_split(char const *s, char c)
 	if (!(ft_get_words((char*)s, new, wd_count, c)))
 		return (0);
 	return (new);
-}
-
-int				main(void)
-{
-	char	**str;
-
-	str = ft_split("   split    these     words  ", ' ');
-	printf("%s\n", str[0]);
-	printf("%s\n", str[1]);
-	printf("%s\n", str[2]);
 }

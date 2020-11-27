@@ -6,15 +6,15 @@
 /*   By: jd-artoi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/17 10:19:15 by jd-artoi          #+#    #+#             */
-/*   Updated: 2020/11/26 16:30:30 by jd-artoi         ###   ########.fr       */
+/*   Updated: 2020/11/27 13:08:56 by jd-artoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 
-#include <stdlib.h>
-#include <limits.h>
+# include <stdlib.h>
+# include <limits.h>
 
 /*
 ** PART ONE
@@ -52,6 +52,9 @@ char	*ft_strjoin(char const *s1, char const *s2);
 char	*ft_strtrim(char const *s1, char const *set);
 char	**ft_split(char const *s, char c);
 char	*ft_itoa(int n);
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
+void	ft_putchar_fd(char c, int fd);
+void	ft_putstr_fd(char *s, int fd);
 
 /*
 ** BONUS
