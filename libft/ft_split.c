@@ -6,13 +6,51 @@
 /*   By: jd-artoi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/25 10:33:53 by jd-artoi          #+#    #+#             */
-/*   Updated: 2020/11/27 10:17:54 by jd-artoi         ###   ########.fr       */
+/*   Updated: 2020/11/27 11:57:01 by jd-artoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include <stdio.h>
-#include <unistd.h>
+
+static int		ft_free_all(char **new, int i)
+{
+	++i;
+	while (--i >= 0)
+		free(new[i]);
+	free(new);
+	return (0);
+}
+
+static int		ft_get_words(char *s, char **new, int wd_count, char c)
+{
+	int		start;
+	int		len;
+	int		i;
+	int		wd;
+
+	start = 0;
+	len = 0;
+	i = -1;
+	wd = 0;
+	while (s[++i] && wd < wd_count - 1)
+	{
+		if (s[i] != c && (s[i - 1] == c || i == 0))
+			start = i;
+		while (s[++i] != c)
+			++len;
+		new[wd] = ft_substr(s, start, len);
+		if (new[wd] == 0)
+		{
+			ft_free_all(new, wd);
+			return (0);
+		}
+		len = 0;
+		++wd;
+	}
+	new[wd_count - 1] = "\0";
+	return (1);
+}
 
 static int		ft_count_words(char const *s, char c)
 {
@@ -22,7 +60,7 @@ static int		ft_count_words(char const *s, char c)
 	count = 0;
 	i = 0;
 	while (s[++i])
-		if (s[i] == c && s[i - 1] != c)
+		if (s[i] == c && (s[i - 1] != c || i == 0))
 			++count;
 	if (s[i - 1] != c)
 		++count;
@@ -31,11 +69,25 @@ static int		ft_count_words(char const *s, char c)
 
 char			**ft_split(char const *s, char c)
 {
-	char	**new = NULL;
+	char	**new;
 	int		wd_count;
 
+	if (!s)
+		return (0);
 	wd_count = ft_count_words(s, c);
 	if (!(new = malloc(sizeof(char *) * wd_count)))
 		return (0);
+	if (!(ft_get_words((char*)s, new, wd_count, c)))
+		return (0);
 	return (new);
+}
+
+int				main(void)
+{
+	char	**str;
+
+	str = ft_split("   split    these     words  ", ' ');
+	printf("%s\n", str[0]);
+	printf("%s\n", str[1]);
+	printf("%s\n", str[2]);
 }
