@@ -6,15 +6,13 @@
 /*   By: jd-artoi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/23 11:35:02 by jd-artoi          #+#    #+#             */
-/*   Updated: 2020/11/23 12:43:47 by jd-artoi         ###   ########.fr       */
+/*   Updated: 2020/11/27 10:00:49 by jd-artoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
-#include <stdlib.h>
 
-int		ft_is_whitespace(int i, char *str)
+static int		ft_is_whitespace(int i, char *str)
 {
 	while (str[i] == ' ' || str[i] == '\t' || str[i] == '\n'
 			|| str[i] == '\v' || str[i] == '\f' || str[i] == '\r')
@@ -22,7 +20,7 @@ int		ft_is_whitespace(int i, char *str)
 	return (i);
 }
 
-int		ft_atoi(const char *str)
+int				ft_atoi(const char *str)
 {
 	int							i;
 	unsigned long long int		res;

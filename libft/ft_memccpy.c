@@ -6,13 +6,11 @@
 /*   By: jd-artoi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/18 15:58:00 by jd-artoi          #+#    #+#             */
-/*   Updated: 2020/11/19 11:48:07 by jd-artoi         ###   ########.fr       */
+/*   Updated: 2020/11/27 09:58:13 by jd-artoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <string.h>
-#include <stdio.h>
 
 void	*ft_memccpy(void *b, const void *a, int c, size_t n)
 {

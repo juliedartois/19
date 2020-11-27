@@ -6,14 +6,13 @@
 /*   By: jd-artoi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/26 11:34:20 by jd-artoi          #+#    #+#             */
-/*   Updated: 2020/11/26 15:06:40 by jd-artoi         ###   ########.fr       */
+/*   Updated: 2020/11/27 09:58:24 by jd-artoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
-int		ft_get_int_size(unsigned int n)
+static int		ft_get_int_size(unsigned int n)
 {
 	int		i;
 
@@ -26,7 +25,7 @@ int		ft_get_int_size(unsigned int n)
 	return (i + 1);
 }
 
-char	*ft_itoa(int num)
+char			*ft_itoa(int num)
 {
 	char			*res;
 	unsigned int	n;

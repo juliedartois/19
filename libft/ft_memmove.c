@@ -6,12 +6,11 @@
 /*   By: jd-artoi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/19 11:49:03 by jd-artoi          #+#    #+#             */
-/*   Updated: 2020/11/19 16:39:46 by jd-artoi         ###   ########.fr       */
+/*   Updated: 2020/11/27 09:58:00 by jd-artoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
 void	*ft_memmove(void *b, const void *a, size_t n)
 {

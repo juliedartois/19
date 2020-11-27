@@ -6,12 +6,11 @@
 /*   By: jd-artoi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/16 20:35:25 by jd-artoi          #+#    #+#             */
-/*   Updated: 2020/11/18 12:04:29 by jd-artoi         ###   ########.fr       */
+/*   Updated: 2020/11/27 09:59:33 by jd-artoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <ctype.h>
-#include <stdio.h>
+#include "libft.h"
 
 int		ft_isprint(int c)
 {
