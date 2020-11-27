@@ -6,11 +6,12 @@
 /*   By: jd-artoi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/25 10:33:53 by jd-artoi          #+#    #+#             */
-/*   Updated: 2020/11/27 12:48:56 by jd-artoi         ###   ########.fr       */
+/*   Updated: 2020/11/27 16:07:10 by jd-artoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdio.h>
 
 static int		ft_free_all(char **new, int i)
 {
@@ -37,7 +38,7 @@ static int		ft_get_words(char *s, char **new, int wd_count, char c)
 		while (s[i] == c)
 			++i;
 		start = i;
-		while (s[++i] != c)
+		while (s[++i] != c && s[i])
 			++len;
 		new[wd] = ft_substr(s, start, len);
 		if (new[wd] == 0)

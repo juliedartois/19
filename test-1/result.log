@@ -32,7 +32,7 @@ ft_putchar_fd: [OK] [OK]
 ft_putstr_fd:  [OK] [OK] {protected}
 ft_putendl_fd: [OK] [OK] {protected}
 ft_putnbr_fd:  [OK] [OK] [OK] [OK] [OK] 
-ft_lstnew:     [MISSING]
+ft_lstnew:     [OK] [OK] [OK] [OK] 
 ft_lstadd_front: [MISSING]
 ft_lstsize:    [MISSING]
 ft_lstlast:    [MISSING]
