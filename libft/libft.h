@@ -6,7 +6,7 @@
 /*   By: jd-artoi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/17 10:19:15 by jd-artoi          #+#    #+#             */
-/*   Updated: 2020/11/27 15:46:00 by jd-artoi         ###   ########.fr       */
+/*   Updated: 2020/11/27 16:13:47 by jd-artoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,8 @@ char				*ft_strrchr(const char *s, int c);
 int					ft_strncmp(const char *s1, const char *s2, size_t n);
 size_t				ft_strlcpy(char *dst, const char *a, size_t dstsize);
 size_t				ft_strlcat(char *dst, const char *a, size_t dstsize);
-char				*ft_strnstr(const char *hay, const char *needle, size_t len);
+char				*ft_strnstr\
+						(const char *hay, const char *needle, size_t len);
 int					ft_atoi(const char *str);
 void				*ft_calloc(size_t count, size_t size);
 void				*ft_strdup(const char *s1);
