@@ -6,7 +6,7 @@
 #    By: jd-artoi <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/11/17 10:19:31 by jd-artoi          #+#    #+#              #
-#    Updated: 2020/11/30 15:22:05 by jd-artoi         ###   ########.fr        #
+#    Updated: 2020/12/03 10:52:52 by jd-artoi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -54,6 +54,9 @@ SRC			=	ft_memset.c			\
 				ft_lstlast.c		\
 				ft_lstadd_back.c	\
 				ft_lstdelone.c		\
+				ft_lstclear.c		\
+				ft_lstiter.c		\
+				ft_lstmap.c			\
 
 OBJ			=	$(SRC:.c=.o)
 
