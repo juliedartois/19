@@ -6,7 +6,7 @@
 #    By: jd-artoi <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/11/17 10:19:31 by jd-artoi          #+#    #+#              #
-#    Updated: 2020/12/03 10:52:52 by jd-artoi         ###   ########.fr        #
+#    Updated: 2020/12/03 13:07:31 by jd-artoi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -69,26 +69,20 @@ all: $(NAME)
 
 $(NAME): $(OBJ)
 	@ar rc $(NAME) $(OBJ)
-	@echo "$(NAME) created"
 	@ranlib $(NAME)
-	@echo "$(NAME) indexed"
 
 bonus: $(OBJ) $(OBJBONUS)
 	@ar rc $(NAME) $(OBJ) $(OBJBONUS)
-	@echo "$(NAME) created (with bonus)"
 	@ranlib $(NAME)
-	@echo "$(NAME) indexed (with bonus)"
 
 %.o: %.c
 	@gcc $(FLAG) -c $< -o $@
 
 clean:
-	@rm -f $(OBJ)
-	@echo "OBJ deleted"
+	@rm -f $(OBJ) $(OBJBONUS)
 
 fclean: clean
 	@rm -f $(NAME)
-	@echo "$(NAME) deleted"
 
 re: fclean all
 
