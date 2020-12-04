@@ -6,7 +6,7 @@
 /*   By: jd-artoi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/03 10:43:18 by jd-artoi          #+#    #+#             */
-/*   Updated: 2020/12/03 12:54:39 by jd-artoi         ###   ########.fr       */
+/*   Updated: 2020/12/04 12:23:22 by jd-artoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 	t_list	*new;
 	t_list	*tab;
 
-	if (!lst || !f)
+	if (!lst || !f || !del)
 		return (NULL);
 	tab = ft_lstnew(f(lst->content));
 	while (lst->next)

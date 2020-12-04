@@ -6,7 +6,7 @@
 /*   By: jd-artoi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/29 15:47:20 by jd-artoi          #+#    #+#             */
-/*   Updated: 2020/11/29 16:00:25 by jd-artoi         ###   ########.fr       */
+/*   Updated: 2020/12/04 12:25:07 by jd-artoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 void	ft_lstadd_front(t_list **lst, t_list *new)
 {
+	if (!lst || !new)
+		return ;
 	new->next = lst[0];
 	*lst = new;
 	return ;

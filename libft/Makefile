@@ -6,7 +6,7 @@
 #    By: jd-artoi <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/11/17 10:19:31 by jd-artoi          #+#    #+#              #
-#    Updated: 2020/12/03 13:07:31 by jd-artoi         ###   ########.fr        #
+#    Updated: 2020/12/04 12:15:34 by jd-artoi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -48,7 +48,10 @@ SRC			=	ft_memset.c			\
 				ft_putstr_fd.c		\
 				ft_putendl_fd.c		\
 				ft_putnbr_fd.c		\
-				ft_lstnew.c			\
+
+OBJ			=	$(SRC:.c=.o)
+
+SRCBONUS	=	ft_lstnew.c			\
 				ft_lstadd_front.c	\
 				ft_lstsize.c		\
 				ft_lstlast.c		\
@@ -57,10 +60,6 @@ SRC			=	ft_memset.c			\
 				ft_lstclear.c		\
 				ft_lstiter.c		\
 				ft_lstmap.c			\
-
-OBJ			=	$(SRC:.c=.o)
-
-SRCBONUS	=	ft_lstnew.c		\
 
 OBJBONUS	=	$(SRCBONUS:.c=.o)
 
@@ -86,4 +85,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all, clean, fclean, re
+.PHONY: all, clean, fclean, re, bonus

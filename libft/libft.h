@@ -6,7 +6,7 @@
 /*   By: jd-artoi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/17 10:19:15 by jd-artoi          #+#    #+#             */
-/*   Updated: 2020/12/03 12:25:24 by jd-artoi         ###   ########.fr       */
+/*   Updated: 2020/12/04 12:17:26 by jd-artoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <stdlib.h>
 # include <limits.h>
+# include <unistd.h>
 
 typedef struct		s_list
 {

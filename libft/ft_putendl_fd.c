@@ -6,12 +6,11 @@
 /*   By: jd-artoi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/27 13:12:01 by jd-artoi          #+#    #+#             */
-/*   Updated: 2020/11/27 13:13:30 by jd-artoi         ###   ########.fr       */
+/*   Updated: 2020/12/04 12:17:32 by jd-artoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <unistd.h>
 
 void	ft_putendl_fd(char *s, int fd)
 {

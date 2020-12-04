@@ -9,3 +9,6 @@ a.out
 */*.o
 */a.out
 42FileChecker
+.gitignore
+*.pdf
+libft-unit-test/
