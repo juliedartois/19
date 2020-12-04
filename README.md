@@ -10,8 +10,8 @@ In this repo, you'll find all the projects I did from the 42 cursus while being 
 
 ### Libft - *Your very first own library*
 
-In this project, we had to create our own C library containing 44 functions that we will use later on in other projects
+In this project, we had to create our own C library containing 44 functions that we will use later on in other projects.
 
 <!-- ### Printf - *Because putnbr and putstr aren't enough*
 
-Here, we had to recode the printf function which taught us how to use *variadic arguments* -->
+Here, we had to recode the printf function which taught us how to use *variadic arguments*. -->
