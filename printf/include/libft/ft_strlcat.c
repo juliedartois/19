@@ -1,29 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strmapi.c                                       :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jd-artoi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/27 12:51:04 by jd-artoi          #+#    #+#             */
-/*   Updated: 2020/12/07 11:18:45 by jd-artoi         ###   ########.fr       */
+/*   Created: 2020/11/20 15:53:49 by jd-artoi          #+#    #+#             */
+/*   Updated: 2020/11/23 16:58:16 by jd-artoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
+size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 {
-	int		i;
-	char	*str;
+	size_t	i;
+	size_t	dstlen;
 
 	i = -1;
-	if (!s || !f)
-		return (NULL);
-	if (!(str = malloc(sizeof(char) * (ft_strlen(s) + 1))))
-		return (NULL);
-	while (s[++i])
-		str[i] = f(i, s[i]);
-	str[i] = '\0';
-	return (str);
+	dstlen = ft_strlen(dst);
+	if (dstsize <= dstlen)
+		return (dstsize + ft_strlen(src));
+	while (src[++i] && i < dstsize - dstlen - 1)
+		dst[dstlen + i] = src[i];
+	dst[dstlen + i] = '\0';
+	return (dstlen + ft_strlen(src));
 }

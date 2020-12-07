@@ -1,29 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strmapi.c                                       :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jd-artoi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/27 12:51:04 by jd-artoi          #+#    #+#             */
-/*   Updated: 2020/12/07 11:18:45 by jd-artoi         ###   ########.fr       */
+/*   Created: 2020/11/19 11:49:03 by jd-artoi          #+#    #+#             */
+/*   Updated: 2020/11/27 09:58:00 by jd-artoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
+void	*ft_memmove(void *b, const void *a, size_t n)
 {
-	int		i;
-	char	*str;
+	unsigned char	*src;
+	char			*dest;
+	int				i;
 
 	i = -1;
-	if (!s || !f)
+	src = (unsigned char*)a;
+	dest = (char*)b;
+	if (a == 0 && b == 0)
 		return (NULL);
-	if (!(str = malloc(sizeof(char) * (ft_strlen(s) + 1))))
-		return (NULL);
-	while (s[++i])
-		str[i] = f(i, s[i]);
-	str[i] = '\0';
-	return (str);
+	else if (dest > (char*)src)
+	{
+		while (n > 0)
+		{
+			--n;
+			dest[n] = src[n];
+		}
+	}
+	else if (dest < (char*)src)
+	{
+		while ((size_t)++i < n)
+			dest[i] = src[i];
+	}
+	return (dest);
 }

@@ -1,29 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strmapi.c                                       :+:      :+:    :+:   */
+/*   ft_memccpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jd-artoi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/27 12:51:04 by jd-artoi          #+#    #+#             */
-/*   Updated: 2020/12/07 11:18:45 by jd-artoi         ###   ########.fr       */
+/*   Created: 2020/11/18 15:58:00 by jd-artoi          #+#    #+#             */
+/*   Updated: 2020/11/27 09:58:13 by jd-artoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
+void	*ft_memccpy(void *b, const void *a, int c, size_t n)
 {
-	int		i;
-	char	*str;
+	char			*dest;
+	unsigned char	*src;
+	int				i;
 
 	i = -1;
-	if (!s || !f)
-		return (NULL);
-	if (!(str = malloc(sizeof(char) * (ft_strlen(s) + 1))))
-		return (NULL);
-	while (s[++i])
-		str[i] = f(i, s[i]);
-	str[i] = '\0';
-	return (str);
+	dest = (char*)b;
+	src = (unsigned char*)a;
+	while (++i < (int)n)
+	{
+		dest[i] = src[i];
+		if (src[i] == (unsigned char)c)
+			return (&dest[++i]);
+	}
+	return (NULL);
 }
