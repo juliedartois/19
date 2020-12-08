@@ -6,7 +6,7 @@
 /*   By: jd-artoi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/23 11:35:02 by jd-artoi          #+#    #+#             */
-/*   Updated: 2020/12/08 15:31:13 by jd-artoi         ###   ########.fr       */
+/*   Updated: 2020/12/08 16:17:11 by jd-artoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ int				ft_atoi(const char *str)
 		res1 += (str[i] - 48);
 		if (res > res1)
 		{
+			min == 1 ? -1 : 0;
 			if (min == 1)
 				return (-1);
 			else if (min == -1)
