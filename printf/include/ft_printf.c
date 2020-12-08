@@ -6,10 +6,37 @@
 /*   By: jd-artoi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/07 11:06:03 by jd-artoi          #+#    #+#             */
-/*   Updated: 2020/12/07 11:42:54 by jd-artoi         ###   ########.fr       */
+/*   Updated: 2020/12/08 11:37:13 by jd-artoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "printf.h"
 
 int				ft_printf(const char *s, ...)
+{
+	int		i;
+
+	i = -1;
+	while (s[++i])
+	{
+		if (s[i] == '%')
+		{
+			if (s[i + 1] == 'c')
+				;
+			else if (s[i + 1] == 'd')
+				;
+			else if (s[i + 1] == 'e')
+				;
+			else if (s[i + 1] == 'f')
+				;
+			else if (s[i + 1] == 'o')
+				;
+			else if (s[i + 1] == 's')
+				;
+			else if (s[i + 1] == '%')
+				write(1, '%', 1);
+		}
+		else
+			write(1, &s[i], 1);
+	}
+}
