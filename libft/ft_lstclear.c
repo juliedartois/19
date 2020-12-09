@@ -6,7 +6,7 @@
 /*   By: jd-artoi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/03 10:01:00 by jd-artoi          #+#    #+#             */
-/*   Updated: 2020/12/03 10:20:05 by jd-artoi         ###   ########.fr       */
+/*   Updated: 2020/12/09 15:51:49 by jd-artoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	ft_lstclear(t_list **lst, void (*del)(void*))
 {
 	t_list	*a;
 
-	if (lst && *lst)
+	if (lst && *lst && del)
 	{
 		while (*lst)
 		{
