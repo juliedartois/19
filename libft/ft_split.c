@@ -6,12 +6,11 @@
 /*   By: jd-artoi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/25 10:33:53 by jd-artoi          #+#    #+#             */
-/*   Updated: 2020/11/27 16:07:10 by jd-artoi         ###   ########.fr       */
+/*   Updated: 2020/12/02 11:20:14 by jd-artoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
 
 static int		ft_free_all(char **new, int i)
 {

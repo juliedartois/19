@@ -1,29 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_lstclear.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jd-artoi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/11/23 15:05:28 by jd-artoi          #+#    #+#             */
-/*   Updated: 2020/12/02 13:35:39 by jd-artoi         ###   ########.fr       */
+/*   Created: 2020/12/02 11:23:02 by jd-artoi          #+#    #+#             */
+/*   Updated: 2020/12/02 14:05:11 by jd-artoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_strdup(const char *s1)
+static void	ft_rec(t_list *item, void (*del)(void*))
 {
-	int		i;
-	char	*cpy;
+	if (item->next)
+		ft_rec(item->next, del);
+	if (!(item->next))
+	{
+		del(item);
+		free(item);
+	}
+}
 
+void		ft_lstclear(t_list **lst, void (*del)(void*))
+{
+	t_list	*item;
 
-	i = -1;
-	cpy = malloc(sizeof(const char) * (ft_strlen(s1) + 1));
-	if (!cpy)
-		return (0);
-	while (s1[++i])
-		cpy[i] = s1[i];
-	cpy[i] = '\0';
-	return (cpy);
+	item = *lst;
+	ft_rec(item, del);
+	lst = NULL;
 }
