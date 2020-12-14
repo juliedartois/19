@@ -6,7 +6,11 @@
 #    By: jd-artoi <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/11/17 10:19:31 by jd-artoi          #+#    #+#              #
+<<<<<<< HEAD
 #    Updated: 2020/12/02 11:23:54 by jd-artoi         ###   ########.fr        #
+=======
+#    Updated: 2020/12/04 12:15:34 by jd-artoi         ###   ########.fr        #
+>>>>>>> 7b3fd82596a22586018655d231f07c6519c70e27
 #                                                                              #
 # **************************************************************************** #
 
@@ -48,17 +52,25 @@ SRC			=	ft_memset.c			\
 				ft_putstr_fd.c		\
 				ft_putendl_fd.c		\
 				ft_putnbr_fd.c		\
-				ft_lstnew.c			\
+
+OBJ			=	$(SRC:.c=.o)
+
+SRCBONUS	=	ft_lstnew.c			\
 				ft_lstadd_front.c	\
 				ft_lstsize.c		\
 				ft_lstlast.c		\
 				ft_lstadd_back.c	\
 				ft_lstdelone.c		\
 				ft_lstclear.c		\
+<<<<<<< HEAD
 
 OBJ			=	$(SRC:.c=.o)
 
 SRCBONUS	=	ft_lstnew.c		\
+=======
+				ft_lstiter.c		\
+				ft_lstmap.c			\
+>>>>>>> 7b3fd82596a22586018655d231f07c6519c70e27
 
 OBJBONUS	=	$(SRCBONUS:.c=.o)
 
@@ -67,27 +79,21 @@ all: $(NAME)
 
 $(NAME): $(OBJ)
 	@ar rc $(NAME) $(OBJ)
-	@echo "$(NAME) created"
 	@ranlib $(NAME)
-	@echo "$(NAME) indexed"
 
 bonus: $(OBJ) $(OBJBONUS)
 	@ar rc $(NAME) $(OBJ) $(OBJBONUS)
-	@echo "$(NAME) created (with bonus)"
 	@ranlib $(NAME)
-	@echo "$(NAME) indexed (with bonus)"
 
 %.o: %.c
 	@gcc $(FLAG) -c $< -o $@
 
 clean:
-	@rm -f $(OBJ)
-	@echo "OBJ deleted"
+	@rm -f $(OBJ) $(OBJBONUS)
 
 fclean: clean
 	@rm -f $(NAME)
-	@echo "$(NAME) deleted"
 
 re: fclean all
 
-.PHONY: all, clean, fclean, re
+.PHONY: all, clean, fclean, re, bonus

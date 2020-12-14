@@ -6,7 +6,7 @@
 /*   By: jd-artoi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/26 11:34:20 by jd-artoi          #+#    #+#             */
-/*   Updated: 2020/11/27 09:58:24 by jd-artoi         ###   ########.fr       */
+/*   Updated: 2020/12/07 11:15:15 by jd-artoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ char			*ft_itoa(int num)
 		n = num;
 	size = ft_get_int_size(n);
 	if (!(res = malloc(sizeof(char) * (size + sign))))
-		return (0);
+		return (NULL);
 	res[--size + sign] = '\0';
 	while (--size >= 0)
 	{

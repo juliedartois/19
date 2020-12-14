@@ -6,12 +6,11 @@
 /*   By: jd-artoi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/27 13:06:10 by jd-artoi          #+#    #+#             */
-/*   Updated: 2020/11/27 13:10:52 by jd-artoi         ###   ########.fr       */
+/*   Updated: 2020/12/04 12:17:38 by jd-artoi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <unistd.h>
 
 void	ft_putchar_fd(char c, int fd)
 {

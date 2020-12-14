@@ -6,7 +6,11 @@
 /*   By: jd-artoi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/17 10:19:15 by jd-artoi          #+#    #+#             */
+<<<<<<< HEAD
 /*   Updated: 2020/12/02 11:23:38 by jd-artoi         ###   ########.fr       */
+=======
+/*   Updated: 2020/12/07 10:29:32 by jd-artoi         ###   ########.fr       */
+>>>>>>> 7b3fd82596a22586018655d231f07c6519c70e27
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +19,7 @@
 
 # include <stdlib.h>
 # include <limits.h>
+# include <unistd.h>
 
 typedef struct		s_list
 {
@@ -32,7 +37,7 @@ void				*ft_memccpy(void *b, const void *a, int c, size_t n);
 void				*ft_memmove(void *b, const void *a, size_t n);
 void				*ft_memchr(const void *s, int c, size_t n);
 int					ft_memcmp(const void *s1, const void *s2, size_t n);
-int					ft_strlen(const char *str);
+size_t				ft_strlen(const char *str);
 int					ft_isalpha(int c);
 int					ft_isdigit(int c);
 int					ft_isalnum(int c);
@@ -75,5 +80,11 @@ t_list				*ft_lstlast(t_list *lst);
 void				ft_lstadd_back(t_list **lst, t_list *new);
 void				ft_lstdelone(t_list *lst, void (*del)(void*));
 void				ft_lstclear(t_list **lst, void (*del)(void*));
+<<<<<<< HEAD
+=======
+void				ft_lstiter(t_list *lst, void (*f)(void *));
+t_list				*ft_lstmap\
+						(t_list *lst, void *(*f)(void *), void (*del)(void *));
+>>>>>>> 7b3fd82596a22586018655d231f07c6519c70e27
 
 #endif

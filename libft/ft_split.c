@@ -6,7 +6,11 @@
 /*   By: jd-artoi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/25 10:33:53 by jd-artoi          #+#    #+#             */
+<<<<<<< HEAD
 /*   Updated: 2020/12/02 11:20:14 by jd-artoi         ###   ########.fr       */
+=======
+/*   Updated: 2020/12/07 11:16:55 by jd-artoi         ###   ########.fr       */
+>>>>>>> 7b3fd82596a22586018655d231f07c6519c70e27
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +59,8 @@ static int		ft_count_words(char const *s, char c)
 
 	count = 0;
 	i = 0;
+	if (s[0] == 0)
+		return (1);
 	while (s[++i])
 		if (s[i] == c && (s[i - 1] != c || i == 0))
 			++count;
@@ -69,11 +75,11 @@ char			**ft_split(char const *s, char c)
 	int		wd_count;
 
 	if (!s)
-		return (0);
+		return (NULL);
 	wd_count = ft_count_words(s, c);
 	if (!(new = malloc(sizeof(char *) * wd_count)))
-		return (0);
+		return (NULL);
 	if (!(ft_get_words((char*)s, new, wd_count, c)))
-		return (0);
+		return (NULL);
 	return (new);
 }
