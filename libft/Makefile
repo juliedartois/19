@@ -6,11 +6,7 @@
 #    By: jd-artoi <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/11/17 10:19:31 by jd-artoi          #+#    #+#              #
-<<<<<<< HEAD
-#    Updated: 2020/12/02 11:23:54 by jd-artoi         ###   ########.fr        #
-=======
-#    Updated: 2020/12/04 12:15:34 by jd-artoi         ###   ########.fr        #
->>>>>>> 7b3fd82596a22586018655d231f07c6519c70e27
+#    Updated: 2020/12/14 11:48:43 by jd-artoi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -62,15 +58,8 @@ SRCBONUS	=	ft_lstnew.c			\
 				ft_lstadd_back.c	\
 				ft_lstdelone.c		\
 				ft_lstclear.c		\
-<<<<<<< HEAD
-
-OBJ			=	$(SRC:.c=.o)
-
-SRCBONUS	=	ft_lstnew.c		\
-=======
 				ft_lstiter.c		\
 				ft_lstmap.c			\
->>>>>>> 7b3fd82596a22586018655d231f07c6519c70e27
 
 OBJBONUS	=	$(SRCBONUS:.c=.o)
 
